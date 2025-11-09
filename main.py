@@ -186,16 +186,40 @@ def toggle_controls(enabled=True):
         drop_label_text.unbind("<Button-1>")
         drop_frame.config(cursor="arrow")
 
-
 def on_drag_and_drop(event):
-    if convert_btn['state'] == tk.NORMAL:
-        try:
-            file_paths = root.tk.splitlist(event.data)
-            if file_paths:
-                select_file(path=file_paths[0])
-        except Exception as e:
-            print(f"Sürükle-bırak hatası: {e}")
+   
+    if convert_btn['state'] == tk.DISABLED:
+        return 
 
+    try:
+    
+        data_str = event.data
+
+        file_paths = []
+        
+      
+        if data_str.startswith('{') and data_str.endswith('}'):
+           
+            file_paths = root.tk.splitlist(data_str)
+        else:
+         
+            file_paths = [data_str]
+
+        if file_paths:
+          
+            first_path = file_paths[0]
+            
+       
+            if first_path.startswith('{') and first_path.endswith('}'):
+                first_path = first_path[1:-1]
+            
+          
+            select_file(path=first_path)
+            
+    except Exception as e:
+        # Hata ayıklama için konsola yazdırmak iyi bir fikirdir
+        print(f"Sürükle-bırak hatası: {e}")
+        print(f"Alınan event.data: {event.data}")
 
 def toggle_theme():
     if theme_toggle_var.get():
