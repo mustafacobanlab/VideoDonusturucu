@@ -90,7 +90,9 @@ Lütfen işlemin bitmesini bekleyin.
 
 Programın en son sürümünü aşağıdaki bağlantıdan indirebilirsiniz:
 
-👉 **[VideoDonusturucu.exe İndir](https://github.com/user/VideoDonusturucu/Download)**
+👉 **[VideoDonusturucu.exe İndir](https://github.com/mustafacobanlab/VideoDonusturucu/raw/main/Download/VideoDonusturucu.exe)**
+
+
 
 ---
 
